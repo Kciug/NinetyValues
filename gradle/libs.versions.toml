@@ -7,10 +7,15 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.10.1"
-composeBom = "2025.05.01"
+composeBom = "2025.03.01"
+composeNav = "2.9.0"
 hilt = "2.56.2"
+hiltNav = "1.2.0"
 room = "2.7.1"
-kotlinxCoroutines = "1.6.0"
+kotlinxCoroutines = "1.10.1"
+gsonVersion = "2.11.0"
+material3IconsExt = "1.7.8"
+reorderable = "2.4.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,8 +37,12 @@ dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", ve
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room"}
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room"}
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room"}
-kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines"}
-
+kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gsonVersion" }
+material3-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended-android", version.ref = "material3IconsExt" }
+androidx-compose-nav = { group = "androidx.navigation", name = "navigation-compose", version.ref = "composeNav" }
+hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNav" }
+reorderable = { module = "sh.calvin.reorderable:reorderable", version.ref = "reorderable" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

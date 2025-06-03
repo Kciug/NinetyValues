@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">90 Values</string>
+    <string name="btn_back">Back</string>
+    <string name="last_entry_title">Last entry</string>
+    <string name="ic_desc_open_last_entry">Open last entry</string>
+    <string name="ic_desc_open_entries_history">Open entries history</string>
+    <string name="btn_start">Start</string>
+    <string name="title_new_entry">Your values</string>
+    <string name="ic_desc_draggable_item">Movable item</string>
+    <string name="title_entries_history">Your journey</string>
+    <string name="ic_desc_date">Entry date</string>
+    <string name="title_entry">Your values</string>
+    <string name="ic_desc_submit">Submitt</string>
+    <string name="title_confirm_save_entry">Are you ready?</string>
+</resources>

@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">NinetyValues</string>
+    <string name="app_name">90 Wartości</string>
+    <string name="btn_back">Wstecz</string>
+    <string name="last_entry_title">Ostatni wpis</string>
+    <string name="ic_desc_open_last_entry">Otwórz ostatni wpis</string>
+    <string name="ic_desc_open_entries_history">Otwórz historię wpisów</string>
+    <string name="btn_start">Start</string>
+    <string name="title_new_entry">Twoje wartości</string>
+    <string name="ic_desc_draggable_item">Przesuwalny element</string>
+    <string name="title_entries_history">Twoja podróż</string>
+    <string name="ic_desc_date">Data wpisu</string>
+    <string name="title_entry">Twoje wartości</string>
+    <string name="ic_desc_submit">Zatwierdź</string>
+    <string name="title_confirm_save_entry">Zapisać listę wartości?</string>
+    <string name="msg_confirm_save_entry">Wpis zostanie zapisany. Jeśli jesteś pewien swoich wyborów, kliknij "Zatwierdź"</string>
+    <string name="new_entry_header">To nie jest zwykła lista. To 90 wartości, z których każda może coś o Tobie powiedzieć. Znajdź chwilę, zatrzymaj się i uporządkuj je tak, jak czujesz. To podróż do środka – Twoich przekonań, priorytetów, tożsamości.</string>
+    <string name="entry_header">Oto Twoja lista wartości życiowych</string>
+    <string name="entry_header_date_join_today">z</string>
+    <string name="entry_header_date_join_yesterday">ze</string>
+    <string name="entry_header_date_join_any">z dnia</string>
+
+    <string name="txt_today">dzisiaj</string>
+    <string name="txt_yesterday">Wczoraj</string>
+
+    <string name="ic_desc_confirmation_required">Wymagane potwierdzenie</string>
+    <string name="btn_confirm">Zatwierdź</string>
+    <string name="btn_dismiss">Wróć</string>
 </resources>

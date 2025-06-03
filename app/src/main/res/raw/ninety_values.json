@@ -1,11 +1,272 @@
 [
   {
-    "name":"Pierwsza wartość"
+    "name": "Autentyczność"
   },
   {
-    "name":"Druga wartość"
+    "name": "Akceptacja"
   },
   {
-    "name":"Wartość trzecia"
+    "name": "Bezpieczeństwo"
+  },
+  {
+    "name": "Bogactwo"
+  },
+  {
+    "name": "Bliskie relacje"
+  },
+  {
+    "name": "Cierpliwość"
+  },
+  {
+    "name": "Ciekawość"
+  },
+  {
+    "name": "Czystość"
+  },
+  {
+    "name": "Czułość"
+  },
+  {
+    "name": "Delikatność"
+  },
+  {
+    "name": "Duma"
+  },
+  {
+    "name": "Dyskrecja"
+  },
+  {
+    "name": "Duchowość"
+  },
+  {
+    "name": "Doskonałość"
+  },
+  {
+    "name": "Elastyczność"
+  },
+  {
+    "name": "Efektywność"
+  },
+  {
+    "name": "Entuzjazm"
+  },
+  {
+    "name": "Godność"
+  },
+  {
+    "name": "Harmonia"
+  },
+  {
+    "name": "Honor"
+  },
+  {
+    "name": "Hedonizm"
+  },
+  {
+    "name": "Intuicja"
+  },
+  {
+    "name": "Konsekwencja"
+  },
+  {
+    "name": "Kreatywność"
+  },
+  {
+    "name": "Komfort"
+  },
+  {
+    "name": "Kompetencja"
+  },
+  {
+    "name": "Lojalność"
+  },
+  {
+    "name": "Marzenia"
+  },
+  {
+    "name": "Miłość"
+  },
+  {
+    "name": "Misja"
+  },
+  {
+    "name": "Mądrość"
+  },
+  {
+    "name": "Nadzieja"
+  },
+  {
+    "name": "Niezależność"
+  },
+  {
+    "name": "Odpowiedzialność"
+  },
+  {
+    "name": "Odwaga"
+  },
+  {
+    "name": "Otwartość"
+  },
+  {
+    "name": "Otoczenie"
+  },
+  {
+    "name": "Pasja"
+  },
+  {
+    "name": "Przygoda"
+  },
+  {
+    "name": "Perfekcjonizm"
+  },
+  {
+    "name": "Piękno"
+  },
+  {
+    "name": "Prawość"
+  },
+  {
+    "name": "Pomoc innym"
+  },
+  {
+    "name": "Pogoda ducha"
+  },
+  {
+    "name": "Przyjaźń"
+  },
+  {
+    "name": "Prestiż"
+  },
+  {
+    "name": "Prawda"
+  },
+  {
+    "name": "Pokora"
+  },
+  {
+    "name": "Prostota"
+  },
+  {
+    "name": "Przyjemność"
+  },
+  {
+    "name": "Rodzina"
+  },
+  {
+    "name": "Radość"
+  },
+  {
+    "name": "Rozwój"
+  },
+  {
+    "name": "Rozwaga"
+  },
+  {
+    "name": "Ryzyko"
+  },
+  {
+    "name": "Rozrywka"
+  },
+  {
+    "name": "Równowaga"
+  },
+  {
+    "name": "Samoświadomość"
+  },
+  {
+    "name": "Sława"
+  },
+  {
+    "name": "Spontaniczność"
+  },
+  {
+    "name": "Sprawiedliwość"
+  },
+  {
+    "name": "Szczęście"
+  },
+  {
+    "name": "Stanowczość"
+  },
+  {
+    "name": "Sukces"
+  },
+  {
+    "name": "Szczerość"
+  },
+  {
+    "name": "Szczodrość"
+  },
+  {
+    "name": "Spokój"
+  },
+  {
+    "name": "Stabilność"
+  },
+  {
+    "name": "Szacunek"
+  },
+  {
+    "name": "Szlachetność"
+  },
+  {
+    "name": "Tolerancja"
+  },
+  {
+    "name": "Troskliwość"
+  },
+  {
+    "name": "Twórczość"
+  },
+  {
+    "name": "Uczciwość"
+  },
+  {
+    "name": "Wdzięczność"
+  },
+  {
+    "name": "Wiedza"
+  },
+  {
+    "name": "Wykształcenie"
+  },
+  {
+    "name": "Wygoda"
+  },
+  {
+    "name": "Wolność"
+  },
+  {
+    "name": "Wierność"
+  },
+  {
+    "name": "Wyrozumiałość"
+  },
+  {
+    "name": "Wsparcie"
+  },
+  {
+    "name": "Wrażliwość"
+  },
+  {
+    "name": "Wiarygodność"
+  },
+  {
+    "name": "Wiara"
+  },
+  {
+    "name": "Zaufanie"
+  },
+  {
+    "name": "Zaradność"
+  },
+  {
+    "name": "Zdrowie"
+  },
+  {
+    "name": "Zadowolenie"
+  },
+  {
+    "name": "Zaangażowanie"
   }
 ]

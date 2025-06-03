@@ -1,12 +1,12 @@
-package com.rafalskrzypczyk.room.di
+package com.rafalskrzypczyk.ninetyvalues.room.di
 
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.rafalskrzypczyk.room.NinetyValuesDB
-import com.rafalskrzypczyk.room.PrepopulateRoomCallback
-import com.rafalskrzypczyk.room.RoomConstants
-import com.rafalskrzypczyk.room.data.dao.ValueDao
+import com.rafalskrzypczyk.ninetyvalues.room.NinetyValuesDB
+import com.rafalskrzypczyk.ninetyvalues.room.PrepopulateRoomCallback
+import com.rafalskrzypczyk.ninetyvalues.room.data.dao.EntryDao
+import com.rafalskrzypczyk.ninetyvalues.room.data.dao.ValueDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,11 +29,12 @@ class RoomModule {
     }
 
     @Provides
+    @Singleton
     fun provideRoomDatabase(
         @ApplicationContext context: Context,
         callback: RoomDatabase.Callback
     ): NinetyValuesDB {
-        return Room.databaseBuilder(context, NinetyValuesDB::class.java, RoomConstants.DATABASE_NAME)
+        return Room.databaseBuilder(context, NinetyValuesDB::class.java, "ninety_values_db")
             .addCallback(callback)
             .build()
     }
@@ -41,5 +42,10 @@ class RoomModule {
     @Provides
     fun provideValueDao(database: NinetyValuesDB): ValueDao {
         return database.valueDao
+    }
+
+    @Provides
+    fun provideEntryDao(database: NinetyValuesDB): EntryDao {
+        return database.entryDao
     }
 }
