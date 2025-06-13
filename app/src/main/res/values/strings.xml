@@ -13,16 +13,23 @@
     <string name="ic_desc_submit">Zatwierdź</string>
     <string name="title_confirm_save_entry">Zapisać listę wartości?</string>
     <string name="msg_confirm_save_entry">Wpis zostanie zapisany. Jeśli jesteś pewien swoich wyborów, kliknij "Zatwierdź"</string>
-    <string name="new_entry_header">To nie jest zwykła lista. To 90 wartości, z których każda może coś o Tobie powiedzieć. Znajdź chwilę, zatrzymaj się i uporządkuj je tak, jak czujesz. To podróż do środka – Twoich przekonań, priorytetów, tożsamości.</string>
+    <string name="new_entry_header">Wybierz wartości według ich znaczenia w Twoim życiu. Zastanów się, które z nich są Twoim wewnętrznym kompasem, a które Cię nie dotyczą.</string>
     <string name="entry_header">Oto Twoja lista wartości życiowych</string>
     <string name="entry_header_date_join_today">z</string>
     <string name="entry_header_date_join_yesterday">ze</string>
     <string name="entry_header_date_join_any">z dnia</string>
 
     <string name="txt_today">dzisiaj</string>
-    <string name="txt_yesterday">Wczoraj</string>
+    <string name="txt_yesterday">wczoraj</string>
 
     <string name="ic_desc_confirmation_required">Wymagane potwierdzenie</string>
     <string name="btn_confirm">Zatwierdź</string>
     <string name="btn_dismiss">Wróć</string>
+
+    <string name="level_desc_essential">Twoje życiowe filary, absolutny fundament.</string>
+    <string name="level_desc_very_important">Wartości, które silnie wpływają na decyzje.</string>
+    <string name="level_desc_important">Ważne, ale nie definiujące.</string>
+    <string name="level_desc_unimportant">Są obecne, ale mają mały wpływ.</string>
+    <string name="level_desc_irrelevant">Te wartośći nie rezonują z Tobą, mogą wręcz Cię odpychać.</string>
+    <string name="level_desc_finalization">Możesz teraz przejrzeć swoją listę wartości i wprowadzić poprawki jeśli chcesz.</string>
 </resources>

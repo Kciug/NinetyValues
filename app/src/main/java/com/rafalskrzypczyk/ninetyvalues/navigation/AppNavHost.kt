@@ -1,6 +1,9 @@
 package com.rafalskrzypczyk.ninetyvalues.navigation
 
+import androidx.compose.foundation.background
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
@@ -21,7 +24,8 @@ import com.rafalskrzypczyk.ninetyvalues.presentation.new_entry.NewEntryVM
 fun AppNavHost (navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = "home"
+        startDestination = "home",
+        modifier = Modifier.background(MaterialTheme.colorScheme.background)
     ) {
         composable("home") {
             val vm = hiltViewModel<HomeScreenVM>()
