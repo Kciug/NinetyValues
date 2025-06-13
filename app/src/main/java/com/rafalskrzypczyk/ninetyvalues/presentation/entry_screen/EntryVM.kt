@@ -1,7 +1,6 @@
 package com.rafalskrzypczyk.ninetyvalues.presentation.entry_screen
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,7 +11,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -35,27 +33,31 @@ class EntryVM @Inject constructor(
 
     init {
         viewModelScope.launch {
-            Log.d("NinetyValues", "entryId: $entryId")
-
             allValues = repository.getAllValues().first()
 
             val entry = repository.getEntryById(entryId)
 
-            Log.d("NinetyValues", "entry: $entry")
-
             entry?.let { entry ->
-                Log.d("NinetyValues", "entry: $entry")
                 val orderedValues = entry.orderedValueIds.mapNotNull { id ->
                     allValues.find { it.id == id }
-                }.map { ValueUIModel(
-                    id = it.id,
-                    name = it.name
-                ) }
+                }
+
+                val previousEntry = if(entry.previousEntryId != null) repository.getEntryById(entry.previousEntryId) else null
+
+                val combinedValues = orderedValues.map { entryValue ->
+                    previousEntry?.let {
+                        val currentPosition = orderedValues.indexOf(entryValue)
+                        val previousPosition = it.orderedValueIds.indexOf(entryValue.id)
+
+                        entryValue.toEntryPresentation(previousPosition - currentPosition)
+                    } ?: entryValue.toEntryPresentation(null)
+                }
 
                 _state.update { it.copy(
                     entryDate = entry.timestamp ?: "",
                     headerMessageDateJoiner = getDateJoiner(entry.timestamp ?: ""),
-                    values = orderedValues
+                    values = combinedValues,
+                    isPositionDifferenceAvailable = previousEntry != null
                 ) }
             }
         }

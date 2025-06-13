@@ -31,7 +31,6 @@ fun AppNavHost (navController: NavHostController) {
             val vm = hiltViewModel<HomeScreenVM>()
             HomeScreen(
                 state = vm.state.collectAsStateWithLifecycle().value,
-                onNavigateToLastEntry = { entryId -> navController.navigate("entry/$entryId") },
                 onNavigateToEntriesList = { navController.navigate("entries_history") },
                 onNavigateToNewEntry = { navController.navigate("new_entry") }
             )

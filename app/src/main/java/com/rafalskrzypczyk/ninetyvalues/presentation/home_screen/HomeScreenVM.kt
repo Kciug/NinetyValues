@@ -21,8 +21,7 @@ class HomeScreenVM @Inject constructor(
         viewModelScope.launch {
             repository.getLatestEntry()?.let { entry ->
                 _state.update { it.copy(
-                    lastEntryDate = entry.timestamp,
-                    lastEntryId = entry.id
+                    lastEntryDate = entry.timestamp
                 ) }
             }
         }

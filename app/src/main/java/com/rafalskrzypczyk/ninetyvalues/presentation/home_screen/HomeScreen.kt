@@ -1,23 +1,25 @@
 package com.rafalskrzypczyk.ninetyvalues.presentation.home_screen
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.HistoryEdu
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -25,62 +27,86 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.blur
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rafalskrzypczyk.ninetyvalues.R
-import com.rafalskrzypczyk.ninetyvalues.ui.composables.NavigationTopBar
 import com.rafalskrzypczyk.ninetyvalues.ui.theme.NinetyValuesTheme
+import com.rafalskrzypczyk.ninetyvalues.ui.theme.Typography
 
 @Composable
 fun HomeScreen(
     state: HomeScreenState,
-    onNavigateToLastEntry: (Long) -> Unit,
     onNavigateToEntriesList: () -> Unit,
     onNavigateToNewEntry: () -> Unit
 ) {
-    Scaffold(
-        topBar = {
-            NavigationTopBar(
-                title = stringResource(R.string.app_name)
-            ) {
-                IconButton(onClick = onNavigateToEntriesList) {
-                    Icon(
-                        imageVector = Icons.Default.HistoryEdu,
-                        contentDescription = stringResource(R.string.ic_desc_open_entries_history),
-                    )
-                }
-            }
-        }
-    ) { innerPadding ->
+    Scaffold { innerPadding ->
         val modifier = Modifier.padding(innerPadding)
 
         Column(
             modifier = modifier
                 .fillMaxSize()
                 .padding(15.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceEvenly
         ) {
-            if(state.lastEntryDate.isNullOrEmpty().not()) {
-                EntriesSection(
-                    lastEntryDate = state.lastEntryDate,
-                    onNavigateToLastEntry = { state.lastEntryId?.let { onNavigateToLastEntry(it) } }
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Box(contentAlignment = Alignment.Center) {
+                    Image(
+                        painter = painterResource(R.drawable.icon_grayscale),
+                        contentDescription = stringResource(R.string.app_name),
+                        colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary),
+                        modifier = Modifier
+                            .fillMaxWidth(0.5f)
+                            .aspectRatio(1f)
+                            .blur(12.dp)
+                    )
+                    Image(
+                        painter = painterResource(R.drawable.icon_grayscale),
+                        contentDescription = stringResource(R.string.app_name),
+                        colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary),
+                        modifier = Modifier
+                            .fillMaxWidth(0.5f)
+                            .aspectRatio(1f)
+                    )
+                }
+                Text(
+                    text = stringResource(R.string.app_name_logo),
+                    color = MaterialTheme.colorScheme.primary,
+                    style = Typography.displayMedium,
                 )
             }
+
             Column (
-                modifier = Modifier.fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                modifier = Modifier.fillMaxWidth(0.6f),
+                verticalArrangement = Arrangement.spacedBy(25.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Image(
-                    painter = painterResource(R.drawable.ic_launcher_foreground),
-                    contentDescription = stringResource(R.string.app_name)
+                MainMenuButton(
+                    text = stringResource(R.string.btn_start),
+                    icon = Icons.Default.AutoAwesome,
+                    onClick = onNavigateToNewEntry
                 )
-                Spacer(modifier = Modifier.height(20.dp))
-                Button(onClick = onNavigateToNewEntry) {
-                    Text(stringResource(R.string.btn_start))
+                MainMenuButton(
+                    text = stringResource(R.string.btn_entries_history),
+                    icon = Icons.Default.HistoryEdu,
+                    onClick = onNavigateToEntriesList
+                )
+                state.lastEntryDate?.let { date ->
+                    Row {
+                        Text(
+                            text = "${stringResource(R.string.last_entry_title)}: "
+                        )
+                        Text(
+                            text = date,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
                 }
             }
         }
@@ -88,35 +114,47 @@ fun HomeScreen(
 }
 
 @Composable
-fun EntriesSection(
-    lastEntryDate: String,
-    onNavigateToLastEntry: () -> Unit
+fun MainMenuButton(
+    text: String,
+    icon: ImageVector? = null,
+    onClick: () -> Unit
 ) {
-    Row (
+    Button(
+        onClick = onClick,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.onPrimary,
+            contentColor = MaterialTheme.colorScheme.onBackground
+        ),
+        contentPadding = PaddingValues(16.dp),
         modifier = Modifier
-            .clickable(onClick = onNavigateToLastEntry)
-            .fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(5.dp, Alignment.End),
-        verticalAlignment = Alignment.CenterVertically
+            .fillMaxWidth()
+            .shadow(
+                elevation = 8.dp,
+                shape = RoundedCornerShape(12.dp),
+                ambientColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.2f),
+                spotColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.2f)
+            )
     ) {
-        Text(stringResource(R.string.last_entry_title))
-        Text(
-            text = lastEntryDate,
-            color = MaterialTheme.colorScheme.onPrimary,
-            modifier = Modifier
-                .clip(shape = RoundedCornerShape(20.dp))
-                .background(MaterialTheme.colorScheme.primary)
-                .padding(horizontal = 10.dp, vertical = 5.dp)
-        )
-        Icon(
-            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
-            contentDescription = stringResource(R.string.ic_desc_open_last_entry)
-        )
+        Row (verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                text = text,
+                style = Typography.titleLarge
+            )
+            icon?.let {
+                Spacer(Modifier.width(8.dp))
+                Icon(
+                    imageVector = icon,
+                    contentDescription = text
+                )
+            }
+        }
     }
 }
 
 @Composable
-@Preview(showBackground = true)
+@Preview(name = "Light Mode")
+@Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
+@Preview(name = "Full Preview", showSystemUi = true)
 private fun PreviewHomeScreen() {
     NinetyValuesTheme {
         Surface {
@@ -124,7 +162,6 @@ private fun PreviewHomeScreen() {
                 state = HomeScreenState(
                     lastEntryDate = "20.04.1889"
                 ),
-                onNavigateToLastEntry = {},
                 onNavigateToEntriesList = {},
                 onNavigateToNewEntry = {},
             )

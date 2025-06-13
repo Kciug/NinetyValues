@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">90 Wartości</string>
+    <string name="app_name_logo">Wartości</string>
     <string name="btn_back">Wstecz</string>
     <string name="last_entry_title">Ostatni wpis</string>
-    <string name="ic_desc_open_last_entry">Otwórz ostatni wpis</string>
-    <string name="ic_desc_open_entries_history">Otwórz historię wpisów</string>
     <string name="btn_start">Start</string>
+    <string name="btn_entries_history">Wpisy</string>
     <string name="title_new_entry">Twoje wartości</string>
     <string name="ic_desc_draggable_item">Przesuwalny element</string>
     <string name="title_entries_history">Twoja podróż</string>
@@ -14,10 +14,12 @@
     <string name="title_confirm_save_entry">Zapisać listę wartości?</string>
     <string name="msg_confirm_save_entry">Wpis zostanie zapisany. Jeśli jesteś pewien swoich wyborów, kliknij "Zatwierdź"</string>
     <string name="new_entry_header">Wybierz wartości według ich znaczenia w Twoim życiu. Zastanów się, które z nich są Twoim wewnętrznym kompasem, a które Cię nie dotyczą.</string>
-    <string name="entry_header">Oto Twoja lista wartości życiowych</string>
+    <string name="entry_header">Twoja lista wartości</string>
     <string name="entry_header_date_join_today">z</string>
     <string name="entry_header_date_join_yesterday">ze</string>
     <string name="entry_header_date_join_any">z dnia</string>
+    <string name="ic_desc_entry_position_difference">Różnica pozycji</string>
+    <string name="ic_desc_entry_compare_positions">Porównaj z poprzednim wpisem</string>
 
     <string name="txt_today">dzisiaj</string>
     <string name="txt_yesterday">wczoraj</string>
