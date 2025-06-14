@@ -1,5 +1,9 @@
 package com.rafalskrzypczyk.ninetyvalues.navigation
 
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.background
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -25,7 +29,19 @@ fun AppNavHost (navController: NavHostController) {
     NavHost(
         navController = navController,
         startDestination = "home",
-        modifier = Modifier.background(MaterialTheme.colorScheme.background)
+        modifier = Modifier.background(MaterialTheme.colorScheme.background),
+        enterTransition = {
+            scaleIn(initialScale = 0.75f) + fadeIn()
+        },
+        exitTransition = {
+            scaleOut(targetScale = 1.25f) + fadeOut()
+        },
+        popEnterTransition = {
+            scaleIn(initialScale = 1.25f) + fadeIn()
+        },
+        popExitTransition = {
+            scaleOut(targetScale = 0.75f) + fadeOut()
+        }
     ) {
         composable("home") {
             val vm = hiltViewModel<HomeScreenVM>()
