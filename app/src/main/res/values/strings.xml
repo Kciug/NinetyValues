@@ -9,6 +9,7 @@
     <string name="ic_desc_draggable_item">Przesuwalny element</string>
     <string name="title_entries_history">Twoja podróż</string>
     <string name="ic_desc_date">Data wpisu</string>
+    <string name="ic_desc_open_entry">Otwórz wpis</string>
     <string name="title_entry">Twoje wartości</string>
     <string name="ic_desc_submit">Zatwierdź</string>
     <string name="title_confirm_save_entry">Zapisać listę wartości?</string>

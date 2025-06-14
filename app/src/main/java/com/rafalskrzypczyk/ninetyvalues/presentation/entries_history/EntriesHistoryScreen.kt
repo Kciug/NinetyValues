@@ -1,15 +1,22 @@
 package com.rafalskrzypczyk.ninetyvalues.presentation.entries_history
 
+import android.content.res.Configuration
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -42,7 +49,11 @@ fun EntriesHistoryScreen(
     ) { innerPadding ->
         val modifier = Modifier.padding(innerPadding)
 
-        LazyColumn (modifier = modifier.fillMaxSize()) {
+        LazyColumn (
+            contentPadding = PaddingValues(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = modifier.fillMaxSize()
+        ) {
             items(state.entries) { item ->
                 EntryCard(item) { id -> onNavigateToEntry(id) }
             }
@@ -55,10 +66,14 @@ fun EntryCard(
     entry: Entry,
     onClick: (Long) -> Unit
 ) {
-    Card (modifier = Modifier
-        .fillMaxWidth()
-        .padding(horizontal = 16.dp, vertical = 8.dp)
-        .clickable(onClick = { onClick(entry.id) })
+    Card (
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = { onClick(entry.id) }),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+        )
     ) {
         Row(
             modifier = Modifier.padding(16.dp),
@@ -66,20 +81,25 @@ fun EntryCard(
         ) {
             Icon(
                 imageVector = Icons.Default.CalendarMonth,
-                contentDescription = stringResource(R.string.ic_desc_date),
-                tint = MaterialTheme.colorScheme.primary
+                contentDescription = stringResource(R.string.ic_desc_date)
             )
+            Spacer(Modifier.width(16.dp))
             Text(
                 text = entry.timestamp ?: "",
-                style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.primary
+                style = MaterialTheme.typography.titleLarge
+            )
+            Spacer(modifier = Modifier.weight(1f))
+            Icon(
+                imageVector = Icons.AutoMirrored.Default.ArrowForward,
+                contentDescription = stringResource(R.string.ic_desc_open_entry),
             )
         }
     }
 }
 
 @Composable
-@Preview
+@Preview(name = "Light Mode")
+@Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 private fun PreviewEntriesHistoryScreen() {
     NinetyValuesTheme {
         Surface {
