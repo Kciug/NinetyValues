@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">90 Values</string>
+    <string name="app_name_logo">Values</string>
     <string name="btn_back">Back</string>
     <string name="last_entry_title">Last entry</string>
     <string name="ic_desc_open_last_entry">Open last entry</string>
     <string name="ic_desc_open_entries_history">Open entries history</string>
     <string name="btn_start">Start</string>
+    <string name="btn_entries_history">Entries</string>
     <string name="title_new_entry">Your values</string>
     <string name="ic_desc_draggable_item">Movable item</string>
     <string name="title_entries_history">Your journey</string>
     <string name="ic_desc_date">Entry date</string>
+    <string name="missing_date">missing date</string>
     <string name="title_entry">Your values</string>
-    <string name="ic_desc_submit">Submitt</string>
+    <string name="ic_desc_submit">Submit</string>
     <string name="title_confirm_save_entry">Are you ready?</string>
+    <string name="open_entry">Open entry</string>
+    <string name="entry_header">Your values</string>
+    <string name="entry_header_date_join_today">from</string>
+    <string name="entry_header_date_join_yesterday">from</string>
+    <string name="entry_header_date_join_any">from</string>
+    <string name="ic_desc_entry_position_difference">Position change</string>
+    <string name="ic_desc_entry_compare_positions">Comapre with previous entry</string>
+    <string name="txt_today">today</string>
+    <string name="txt_yesterday">yesterday</string>
+    <string name="ic_desc_confirmation_required">Confirmation needed</string>
+    <string name="btn_confirm">Submit</string>
+    <string name="btn_dismiss">Back</string>
 </resources>
