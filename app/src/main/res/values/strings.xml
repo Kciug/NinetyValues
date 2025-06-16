@@ -12,10 +12,9 @@
     <string name="open_entry">Otwórz wpis</string>
     <string name="missing_date">brak daty</string>
     <string name="title_entry">Twoje wartości</string>
-    <string name="ic_desc_submit">Zatwierdź</string>
+    <string name="btn_submit">Dalej</string>
     <string name="title_confirm_save_entry">Zapisać listę wartości?</string>
     <string name="msg_confirm_save_entry">Wpis zostanie zapisany. Jeśli jesteś pewien swoich wyborów, kliknij "Zatwierdź"</string>
-    <string name="new_entry_header">Wybierz wartości według ich znaczenia w Twoim życiu. Zastanów się, które z nich są Twoim wewnętrznym kompasem, a które Cię nie dotyczą.</string>
     <string name="entry_header">Twoja lista wartości</string>
     <string name="entry_header_date_join_today">z</string>
     <string name="entry_header_date_join_yesterday">ze</string>
@@ -23,12 +22,24 @@
     <string name="ic_desc_entry_position_difference">Różnica pozycji</string>
     <string name="ic_desc_entry_compare_positions">Porównaj z poprzednim wpisem</string>
 
+    <string name="new_entry_intro_header">Za chwilę przejdziesz przez proces, w którym uporządkujesz swoje życiowe wartości — te, które kierują Twoimi decyzjami, celami i relacjami.</string>
+    <string name="new_entry_intro_guide_1">W każdej rundzie wybierzesz 10 wartości.</string>
+    <string name="new_entry_intro_guide_2">Zacznij od tych, które są dla Ciebie najmniej istotne.</string>
+    <string name="new_entry_intro_guide_3">Na koniec możesz jeszcze edytować swoje wybory.</string>
+    <string name="new_entry_intro_end">To nie test. Nie oceniaj siebie. Nie spiesz się. Wybieraj zgodnie z tym, co czujesz.</string>
+    <string name="ic_desc_new_entry_guide_point">Punkt instrukcji</string>
+    <string name="btn_new_entry_start">Zaczynajmy!</string>
+    <string name="ic_desc_guide">Przewodnik</string>
+
     <string name="txt_today">dzisiaj</string>
     <string name="txt_yesterday">wczoraj</string>
 
     <string name="ic_desc_confirmation_required">Wymagane potwierdzenie</string>
     <string name="btn_confirm">Zatwierdź</string>
     <string name="btn_dismiss">Wróć</string>
+
+    <string name="new_entry_header">wartości za Tobą!</string>
+    <string name="new_entry_header_hint">Wybierz 10 wartości, które mają najmniejszy udział w Twoim życiu.</string>
 
     <string name="level_desc_essential">Twoje życiowe filary, absolutny fundament.</string>
     <string name="level_desc_very_important">Wartości, które silnie wpływają na decyzje.</string>

@@ -23,16 +23,17 @@ class NewEntryVM @Inject constructor(
     private var selectableValues = listOf<ValueSelectableUIModel>()
     private var orderedValues = mutableListOf<Value>()
 
-    private var currentValuesSelectingSteps: ValuesSelectingSteps? = null
-    private var adjustedStepLimit: Int = 0
-
     private var initialValuesAmount: Int = 0
+    private val stepLimit: Int = 10
+    private var stepsCount: Int = 0
+    private var currentStep: Int = 1
+
 
     fun onEvent(event: NewEntryUIEvents) {
         when(event) {
             NewEntryUIEvents.LoadInitialValues -> loadInitialValues()
             NewEntryUIEvents.OnSubmit -> onSubmit()
-            is NewEntryUIEvents.OnValuesReordered -> reorderValues(event.reorderedValues)
+            is NewEntryUIEvents.OnValuesReordered -> reorderValues(event.orderedList)
             is NewEntryUIEvents.OnValueSelected -> onValueSelected(event.valueId)
             is NewEntryUIEvents.OnValueDeselected -> onValueDeselected(event.valueId)
             NewEntryUIEvents.SaveEntry -> saveEntry()
@@ -40,17 +41,16 @@ class NewEntryVM @Inject constructor(
     }
 
     private fun loadInitialValues() {
-        currentValuesSelectingSteps = ValuesSelectingSteps.getFirstStep()
-        currentValuesSelectingSteps?.let { adjustedStepLimit += it.count }
         viewModelScope.launch {
             repository.getAllValues().collectLatest { initialValues ->
                 selectableValues = initialValues.sortedBy { it.name }.map { it.toSelectableUIModel() }.toMutableList()
                 initialValuesAmount = initialValues.count()
+                stepsCount = initialValuesAmount / stepLimit
                 _state.update {
                     it.copy(
                         valuesToSelect = selectableValues,
-                        selectingStep = currentValuesSelectingSteps,
-                        selectingLimit = currentValuesSelectingSteps?.count ?: 0
+                        step = currentStep,
+                        selectingLimit = stepLimit
                     )
                 }
             }
@@ -58,31 +58,34 @@ class NewEntryVM @Inject constructor(
     }
 
     private fun onSubmit() {
-        currentValuesSelectingSteps?.let { currentValuesSelectingSteps = ValuesSelectingSteps.getNextStep(it) }
-        if(currentValuesSelectingSteps == null) {
-            proceedToFinalization()
-        } else {
+        if(currentStep < stepsCount) {
+            currentStep += 1
             proceedToNextSelectingStep()
+        } else {
+            proceedToFinalization()
         }
     }
 
     private fun proceedToNextSelectingStep() {
+        val limit = if(currentStep == stepsCount) {
+            initialValuesAmount - ((stepsCount - 1) * stepLimit)
+        } else stepLimit
+
         selectableValues = selectableValues.filter { !it.isSelected }
-        currentValuesSelectingSteps?.let { adjustedStepLimit += it.count }
+
         _state.update { it.copy(
             orderingMode = OrderingMode.SELECTING,
-            selectingStep = currentValuesSelectingSteps,
+            step = currentStep,
             valuesToSelect = selectableValues,
             selectedItems = 0,
             submitAllowed = false,
-            selectingLimit = currentValuesSelectingSteps?.count ?: 0
+            selectingLimit = limit
         ) }
     }
 
     private fun proceedToFinalization() {
         _state.update { it.copy(
             orderingMode = OrderingMode.DRAGGING,
-            selectingStep = null,
             valuesToReorder = orderedValues,
             valuesToSelect = emptyList(),
             confirmationRequired = true,
@@ -91,9 +94,9 @@ class NewEntryVM @Inject constructor(
         ) }
     }
 
-    private fun reorderValues(reorderedValues: List<Value>) {
-        orderedValues = reorderedValues.toMutableList()
-        _state.update { it.copy(valuesToReorder = orderedValues) }
+    private fun reorderValues(reorderedList: List<Value>) {
+        orderedValues = reorderedList.toMutableList()
+        _state.update { it.copy(valuesToReorder = orderedValues.toList()) }
     }
 
     private fun saveEntry() {
@@ -134,7 +137,7 @@ class NewEntryVM @Inject constructor(
     }
 
     private fun updateSelectedState(valueAdded: Boolean) {
-        val limitReached = orderedValues.count() >= adjustedStepLimit
+        val limitReached = orderedValues.count() >= (stepLimit * currentStep)
         _state.update { it.copy(
             valuesToSelect = selectableValues.map { it.copy() },
             orderingMode = if(limitReached) OrderingMode.NONE else OrderingMode.SELECTING,

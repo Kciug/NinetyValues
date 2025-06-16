@@ -47,6 +47,8 @@ fun HomeScreen(
     onNavigateToEntriesList: () -> Unit,
     onNavigateToNewEntry: () -> Unit
 ) {
+
+
     Scaffold { innerPadding ->
         val modifier = Modifier.padding(innerPadding)
 
