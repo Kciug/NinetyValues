@@ -31,6 +31,7 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -38,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import com.rafalskrzypczyk.ninetyvalues.R
 import com.rafalskrzypczyk.ninetyvalues.ui.theme.NinetyValuesTheme
 import com.rafalskrzypczyk.ninetyvalues.ui.theme.Typography
+import com.rafalskrzypczyk.ninetyvalues.utils.toFormattedDate
 
 @Composable
 fun HomeScreen(
@@ -103,7 +105,7 @@ fun HomeScreen(
                             text = "${stringResource(R.string.last_entry_title)}: "
                         )
                         Text(
-                            text = date,
+                            text = date.toFormattedDate(LocalContext.current),
                             color = MaterialTheme.colorScheme.primary
                         )
                     }
@@ -160,7 +162,7 @@ private fun PreviewHomeScreen() {
         Surface {
             HomeScreen(
                 state = HomeScreenState(
-                    lastEntryDate = "20.04.1889"
+                    lastEntryDate = 294572948
                 ),
                 onNavigateToEntriesList = {},
                 onNavigateToNewEntry = {},

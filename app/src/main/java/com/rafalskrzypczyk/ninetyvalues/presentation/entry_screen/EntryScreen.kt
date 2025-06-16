@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -41,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import com.rafalskrzypczyk.ninetyvalues.R
 import com.rafalskrzypczyk.ninetyvalues.ui.composables.NavigationTopBar
 import com.rafalskrzypczyk.ninetyvalues.ui.theme.NinetyValuesTheme
+import com.rafalskrzypczyk.ninetyvalues.utils.toFormattedDate
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -75,7 +77,7 @@ fun EntryScreen(
                         )
                         Spacer(Modifier.width(16.dp))
                         Text(
-                            text = state.entryDate,
+                            text = state.entryDate?.toFormattedDate(LocalContext.current) ?: stringResource(R.string.missing_date),
                             style = MaterialTheme.typography.titleMedium,
                             color = MaterialTheme.colorScheme.primary
                         )
@@ -171,8 +173,7 @@ private fun PreviewEntryScreen() {
         Surface {
             EntryScreen(
                 state = EntryState(
-                    entryDate = "wczoraj",
-                    headerMessageDateJoiner = "ze",
+                    entryDate = 0,
                     values = listOf(
                         ValueUIModel(
                             id = 0,

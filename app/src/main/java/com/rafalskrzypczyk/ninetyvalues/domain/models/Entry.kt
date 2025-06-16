@@ -1,13 +1,11 @@
 package com.rafalskrzypczyk.ninetyvalues.domain.models
 
-import android.content.Context
 import com.rafalskrzypczyk.ninetyvalues.room.data.models.EntryEntity
-import com.rafalskrzypczyk.ninetyvalues.utils.toFormattedDate
 
 
 data class Entry(
     val id: Long = 0,
-    val timestamp: String? = null,
+    val timestamp: Long? = null,
     val orderedValueIds: List<Long>,
     val previousEntryId: Long? = null
 )
@@ -17,9 +15,9 @@ fun Entry.toEntity(): EntryEntity = EntryEntity(
     previousEntryId = previousEntryId
 )
 
-fun EntryEntity.toDomain(context: Context): Entry = Entry(
+fun EntryEntity.toDomain(): Entry = Entry(
     id = id,
-    timestamp = timestamp.toFormattedDate(context),
+    timestamp = timestamp,
     orderedValueIds = orderedValueIds,
     previousEntryId = previousEntryId
 )

@@ -38,6 +38,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -45,6 +46,7 @@ import com.rafalskrzypczyk.ninetyvalues.R
 import com.rafalskrzypczyk.ninetyvalues.domain.models.Entry
 import com.rafalskrzypczyk.ninetyvalues.ui.composables.NavigationTopBar
 import com.rafalskrzypczyk.ninetyvalues.ui.theme.NinetyValuesTheme
+import com.rafalskrzypczyk.ninetyvalues.utils.toFormattedDate
 
 @Composable
 fun EntriesHistoryScreen(
@@ -113,7 +115,7 @@ fun EntryCard(
                 )
                 Spacer(Modifier.width(12.dp))
                 Text(
-                    text = entry.timestamp ?: stringResource(R.string.missing_date),
+                    text = entry.timestamp?.toFormattedDate(LocalContext.current) ?: stringResource(R.string.missing_date),
                     style = MaterialTheme.typography.titleMedium
                 )
             }
@@ -148,7 +150,7 @@ private fun PreviewEntriesHistoryEntryCard() {
             EntryCard(
                 entry = Entry(
                     id = 0,
-                    timestamp = "dzisiaj",
+                    timestamp = null,
                     orderedValueIds = emptyList()
                 ),
                 onClick = {}
@@ -168,22 +170,22 @@ private fun PreviewEntriesHistoryScreen() {
                     entries = listOf(
                         Entry(
                             id = 0,
-                            timestamp = "dzisiaj",
+                            timestamp = 0,
                             orderedValueIds = emptyList()
                         ),
                         Entry(
                             id = 1,
-                            timestamp = "wczoraj",
+                            timestamp = 2137,
                             orderedValueIds = emptyList()
                         ),
                         Entry(
                             id = 2,
-                            timestamp = "02.05.2025",
+                            timestamp = 123123123,
                             orderedValueIds = emptyList()
                         ),
                         Entry(
                             id = 3,
-                            timestamp = "06.09.1996",
+                            timestamp = null,
                             orderedValueIds = emptyList()
                         )
                     )

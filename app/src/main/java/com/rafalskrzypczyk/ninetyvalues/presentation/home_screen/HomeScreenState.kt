@@ -1,5 +1,5 @@
 package com.rafalskrzypczyk.ninetyvalues.presentation.home_screen
 
 data class HomeScreenState (
-    val lastEntryDate: String? = null
+    val lastEntryDate: Long? = null
 )
