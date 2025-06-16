@@ -5,8 +5,9 @@ import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,8 +19,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.CompareArrows
 import androidx.compose.material.icons.filled.ArrowDownward
 import androidx.compose.material.icons.filled.ArrowUpward
+import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.Remove
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -34,10 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rafalskrzypczyk.ninetyvalues.R
@@ -65,30 +63,28 @@ fun EntryScreen(
 
         LazyColumn (modifier = modifier.fillMaxSize()) {
             item {
-                Text(
-                    text = buildAnnotatedString {
-                        append("${stringResource(R.string.entry_header)} ${state.headerMessageDateJoiner} ")
-                        withStyle(
-                            style = SpanStyle(color = MaterialTheme.colorScheme.primary)
-                        ) {
-                            append(state.entryDate)
-                        }
-                    },
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp)
-                )
-                if (state.isPositionDifferenceAvailable) {
-                    Row (
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 10.dp),
-                        horizontalArrangement = Arrangement.End
+                Box(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.align(Alignment.Center)
                     ) {
-                        IconButton(onClick = {
-                            positionComparisonVisible.value = positionComparisonVisible.value.not()
-                        }) {
+                        Icon(
+                            imageVector = Icons.Default.CalendarMonth,
+                            contentDescription = stringResource(R.string.ic_desc_date),
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                        Spacer(Modifier.width(16.dp))
+                        Text(
+                            text = state.entryDate,
+                            style = MaterialTheme.typography.titleMedium,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                    if (state.isPositionDifferenceAvailable) {
+                        IconButton(
+                            onClick = { positionComparisonVisible.value = positionComparisonVisible.value.not() },
+                            modifier = Modifier.align(Alignment.CenterEnd)
+                        ) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Default.CompareArrows,
                                 contentDescription = stringResource(R.string.ic_desc_entry_compare_positions),
@@ -116,60 +112,56 @@ fun ValueItem(
     position: Int,
     showPositionDifferences: Boolean
 ) {
-    Column {
-        if(position > 1){
-            HorizontalDivider()
-        }
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Row {
-                Text(
-                    text = position.toString(),
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.defaultMinSize(minWidth = 40.dp),
-                    textAlign = TextAlign.Center
-                )
-                Text(value.name)
-            }
-            AnimatedVisibility(
-                visible = showPositionDifferences,
-                enter = slideInHorizontally { it * 2 },
-                exit = slideOutHorizontally  { it * 2 }
-            ){
-                Row (
-                    modifier = Modifier.width(50.dp),
-                    horizontalArrangement = Arrangement.End
-                ) {
-                    val differenceIcon = when {
-                        value.positionChange > 0 -> Icons.Default.ArrowUpward
-                        value.positionChange < 0 -> Icons.Default.ArrowDownward
-                        else -> Icons.Default.Remove
-                    }
-                    val color = when {
-                        value.positionChange == 0 -> Color.Gray
-                        else -> Color.Green
-                    }
+    val differenceIcon = when {
+        value.positionChange > 0 -> Icons.Default.ArrowUpward
+        value.positionChange < 0 -> Icons.Default.ArrowDownward
+        else -> Icons.Default.Remove
+    }
+    val differenceColor = when {
+        value.positionChange == 0 -> Color.Gray
+        else -> MaterialTheme.colorScheme.primary
+    }
 
-                    if(value.positionChange != 0){
-                        Text(
-                            text = value.positionChange.absoluteValue.toString(),
-                            color = color
-                        )
-                    }
-                    Icon(
-                        imageVector = differenceIcon,
-                        contentDescription = stringResource(R.string.ic_desc_entry_position_difference),
-                        tint = color
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = position.toString(),
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.defaultMinSize(minWidth = 40.dp),
+            textAlign = TextAlign.Center
+        )
+        Spacer(Modifier.width(16.dp))
+        Text(value.name)
+        Spacer(Modifier.weight(1f))
+        AnimatedVisibility(
+            visible = showPositionDifferences,
+            enter = slideInHorizontally { it * 2 },
+            exit = slideOutHorizontally  { it * 2 }
+        ){
+            Row (
+                modifier = Modifier.width(50.dp),
+                horizontalArrangement = Arrangement.End
+            ) {
+                if(value.positionChange != 0){
+                    Text(
+                        text = value.positionChange.absoluteValue.toString(),
+                        color = differenceColor
                     )
                 }
+                Icon(
+                    imageVector = differenceIcon,
+                    contentDescription = stringResource(R.string.ic_desc_entry_position_difference),
+                    tint = differenceColor
+                )
             }
         }
     }
+
 }
 
 @Composable
