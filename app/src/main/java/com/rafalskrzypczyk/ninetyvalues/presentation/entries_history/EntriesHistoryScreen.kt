@@ -28,6 +28,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
@@ -76,7 +77,7 @@ fun EntriesHistoryScreen(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = modifier.fillMaxSize()
             ) {
-                items(state.entries) { item ->
+                items(state.entries, key = {it.id}) { item ->
                     EntryCard(item) { id -> onNavigateToEntry(id) }
                 }
             }
@@ -95,13 +96,13 @@ fun EntryCard(
             .clip(RoundedCornerShape(20.dp))
             .clickable { onClick(entry.id) },
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.8f),
-            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+            containerColor = MaterialTheme.colorScheme.surfaceColorAtElevation(2.dp)
         ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
             modifier = Modifier
-                .padding(horizontal = 20.dp, vertical = 16.dp)
+                .padding(16.dp)
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically
@@ -141,6 +142,24 @@ fun EntryCard(
 @Composable
 @Preview(name = "Light Mode")
 @Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
+private fun PreviewEntriesHistoryEntryCard() {
+    NinetyValuesTheme {
+        Surface {
+            EntryCard(
+                entry = Entry(
+                    id = 0,
+                    timestamp = "dzisiaj",
+                    orderedValueIds = emptyList()
+                ),
+                onClick = {}
+            )
+        }
+    }
+}
+
+@Composable
+@Preview(name = "Light Mode")
+@Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 private fun PreviewEntriesHistoryScreen() {
     NinetyValuesTheme {
         Surface {
@@ -148,18 +167,22 @@ private fun PreviewEntriesHistoryScreen() {
                 state = EntriesHistoryState(
                     entries = listOf(
                         Entry(
+                            id = 0,
                             timestamp = "dzisiaj",
                             orderedValueIds = emptyList()
                         ),
                         Entry(
+                            id = 1,
                             timestamp = "wczoraj",
                             orderedValueIds = emptyList()
                         ),
                         Entry(
+                            id = 2,
                             timestamp = "02.05.2025",
                             orderedValueIds = emptyList()
                         ),
                         Entry(
+                            id = 3,
                             timestamp = "06.09.1996",
                             orderedValueIds = emptyList()
                         )
