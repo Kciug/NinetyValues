@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ValueDao {
-    @Query("SELECT * FROM `values`")
+    @Query("SELECT * FROM `value_items`")
     fun getAllValues(): Flow<List<ValueEntity>>
 
     @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)

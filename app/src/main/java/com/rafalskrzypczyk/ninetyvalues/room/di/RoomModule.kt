@@ -35,8 +35,8 @@ class RoomModule {
         callback: RoomDatabase.Callback
     ): NinetyValuesDB {
         return Room.databaseBuilder(context, NinetyValuesDB::class.java, "ninety_values_db")
-            .fallbackToDestructiveMigration(true)
             .addCallback(callback)
+            .fallbackToDestructiveMigration(true)
             .build()
     }
 
