@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">90 Wartości</string>
     <string name="app_name_logo">Wartości</string>
     <string name="btn_back">Wstecz</string>
@@ -15,14 +15,10 @@
     <string name="btn_submit">Dalej</string>
     <string name="title_confirm_save_entry">Zapisać listę wartości?</string>
     <string name="msg_confirm_save_entry">Wpis zostanie zapisany. Jeśli jesteś pewien swoich wyborów, kliknij "Zatwierdź"</string>
-    <string name="entry_header">Twoja lista wartości</string>
-    <string name="entry_header_date_join_today">z</string>
-    <string name="entry_header_date_join_yesterday">ze</string>
-    <string name="entry_header_date_join_any">z dnia</string>
     <string name="ic_desc_entry_position_difference">Różnica pozycji</string>
     <string name="ic_desc_entry_compare_positions">Porównaj z poprzednim wpisem</string>
 
-    <string name="new_entry_intro_header">Za chwilę przejdziesz przez proces, w którym uporządkujesz swoje życiowe wartości — te, które kierują Twoimi decyzjami, celami i relacjami.</string>
+    <string name="new_entry_intro_header" tools:ignore="Typos">Za chwilę przejdziesz przez proces, w którym uporządkujesz swoje życiowe wartości — te, które kierują Twoimi decyzjami, celami i relacjami.</string>
     <string name="new_entry_intro_guide_1">W każdej rundzie wybierzesz 10 wartości.</string>
     <string name="new_entry_intro_guide_2">Zacznij od tych, które są dla Ciebie najmniej istotne.</string>
     <string name="new_entry_intro_guide_3">Na koniec możesz jeszcze edytować swoje wybory.</string>
@@ -41,10 +37,5 @@
     <string name="new_entry_header">wartości za Tobą!</string>
     <string name="new_entry_header_hint">Wybierz 10 wartości, które mają najmniejszy udział w Twoim życiu.</string>
 
-    <string name="level_desc_essential">Twoje życiowe filary, absolutny fundament.</string>
-    <string name="level_desc_very_important">Wartości, które silnie wpływają na decyzje.</string>
-    <string name="level_desc_important">Ważne, ale nie definiujące.</string>
-    <string name="level_desc_unimportant">Są obecne, ale mają mały wpływ.</string>
-    <string name="level_desc_irrelevant">Te wartośći nie rezonują z Tobą, mogą wręcz Cię odpychać.</string>
     <string name="level_desc_finalization">Możesz teraz przejrzeć swoją listę wartości i wprowadzić poprawki jeśli chcesz.</string>
 </resources>
