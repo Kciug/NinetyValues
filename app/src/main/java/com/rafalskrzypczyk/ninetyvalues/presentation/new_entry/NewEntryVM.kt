@@ -88,7 +88,7 @@ class NewEntryVM @Inject constructor(
             orderingMode = OrderingMode.DRAGGING,
             valuesToReorder = orderedValues,
             valuesToSelect = emptyList(),
-            confirmationRequired = true,
+            isFinalizationStep = true,
             showProgressBar = false,
             submitAllowed = true
         ) }
@@ -131,8 +131,8 @@ class NewEntryVM @Inject constructor(
                 position = -1
             ) else item
         }
-
         orderedValues.removeIf { it.id == valueId }
+        renumberSelectedPositions()
         updateSelectedState(false)
     }
 
@@ -144,5 +144,12 @@ class NewEntryVM @Inject constructor(
             submitAllowed = limitReached,
             selectedItems = if(valueAdded) it.selectedItems.plus(1) else it.selectedItems.minus(1)
         ) }
+    }
+
+    private fun renumberSelectedPositions() {
+        selectableValues = selectableValues.map { item ->
+            val index = orderedValues.asReversed().indexOfFirst { it.id == item.id }
+            if (index != -1) item.copy(position = initialValuesAmount - index) else item
+        }
     }
 }

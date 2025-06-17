@@ -1,272 +1,362 @@
 [
   {
-    "name": "Autentyczność"
+    "pl": "Autentyczność",
+    "en": "Authenticity"
   },
   {
-    "name": "Akceptacja"
+    "pl": "Akceptacja",
+    "en": "Acceptance"
   },
   {
-    "name": "Bezpieczeństwo"
+    "pl": "Bezpieczeństwo",
+    "en": "Safety"
   },
   {
-    "name": "Bogactwo"
+    "pl": "Bogactwo",
+    "en": "Wealth"
   },
   {
-    "name": "Bliskie relacje"
+    "pl": "Bliskie relacje",
+    "en": "Close relations"
   },
   {
-    "name": "Cierpliwość"
+    "pl": "Cierpliwość",
+    "en": "Patience"
   },
   {
-    "name": "Ciekawość"
+    "pl": "Ciekawość",
+    "en": "Curiosity"
   },
   {
-    "name": "Czystość"
+    "pl": "Czystość",
+    "en": "Clarity"
   },
   {
-    "name": "Czułość"
+    "pl": "Czułość",
+    "en": "Tenderness"
   },
   {
-    "name": "Delikatność"
+    "pl": "Delikatność",
+    "en": "Subtlety"
   },
   {
-    "name": "Duma"
+    "pl": "Duma",
+    "en": "Pride"
   },
   {
-    "name": "Dyskrecja"
+    "pl": "Dyskrecja",
+    "en": "Secrecy"
   },
   {
-    "name": "Duchowość"
+    "pl": "Duchowość",
+    "en": "Spirituality"
   },
   {
-    "name": "Doskonałość"
+    "pl": "Doskonałość",
+    "en": "Excellence"
   },
   {
-    "name": "Elastyczność"
+    "pl": "Elastyczność",
+    "en": "Flexibility"
   },
   {
-    "name": "Efektywność"
+    "pl": "Efektywność",
+    "en": "Effectiveness"
   },
   {
-    "name": "Entuzjazm"
+    "pl": "Entuzjazm",
+    "en": "Enthusiasm"
   },
   {
-    "name": "Godność"
+    "pl": "Godność",
+    "en": "Dignity"
   },
   {
-    "name": "Harmonia"
+    "pl": "Harmonia",
+    "en": "Harmony"
   },
   {
-    "name": "Honor"
+    "pl": "Honor",
+    "en": "Honour"
   },
   {
-    "name": "Hedonizm"
+    "pl": "Hedonizm",
+    "en": "Hedonism"
   },
   {
-    "name": "Intuicja"
+    "pl": "Intuicja",
+    "en": "Intuition"
   },
   {
-    "name": "Konsekwencja"
+    "pl": "Konsekwencja",
+    "en": "Consistency"
   },
   {
-    "name": "Kreatywność"
+    "pl": "Kreatywność",
+    "en": "Creativity"
   },
   {
-    "name": "Komfort"
+    "pl": "Komfort",
+    "en": "Comfort"
   },
   {
-    "name": "Kompetencja"
+    "pl": "Kompetencja",
+    "en": "Proficiency"
   },
   {
-    "name": "Lojalność"
+    "pl": "Lojalność",
+    "en": "Loyalty"
   },
   {
-    "name": "Marzenia"
+    "pl": "Marzenia",
+    "en": "Dreams"
   },
   {
-    "name": "Miłość"
+    "pl": "Miłość",
+    "en": "Love"
   },
   {
-    "name": "Misja"
+    "pl": "Misja",
+    "en": "Mission"
   },
   {
-    "name": "Mądrość"
+    "pl": "Mądrość",
+    "en": "Wisdom"
   },
   {
-    "name": "Nadzieja"
+    "pl": "Nadzieja",
+    "en": "Hope"
   },
   {
-    "name": "Niezależność"
+    "pl": "Niezależność",
+    "en": "Independence"
   },
   {
-    "name": "Odpowiedzialność"
+    "pl": "Odpowiedzialność",
+    "en": "Responsibility"
   },
   {
-    "name": "Odwaga"
+    "pl": "Odwaga",
+    "en": "Courage"
   },
   {
-    "name": "Otwartość"
+    "pl": "Otwartość",
+    "en": "Openness"
   },
   {
-    "name": "Otoczenie"
+    "pl": "Otoczenie",
+    "en": "Environment"
   },
   {
-    "name": "Pasja"
+    "pl": "Pasja",
+    "en": "Passion"
   },
   {
-    "name": "Przygoda"
+    "pl": "Przygoda",
+    "en": "Adventure"
   },
   {
-    "name": "Perfekcjonizm"
+    "pl": "Perfekcjonizm",
+    "en": "Perfectionism"
   },
   {
-    "name": "Piękno"
+    "pl": "Piękno",
+    "en": "Beauty"
   },
   {
-    "name": "Prawość"
+    "pl": "Prawość",
+    "en": "Righteousness"
   },
   {
-    "name": "Pomoc innym"
+    "pl": "Pomoc innym",
+    "en": "Helping others"
   },
   {
-    "name": "Pogoda ducha"
+    "pl": "Pogoda ducha",
+    "en": "Cheerfulness"
   },
   {
-    "name": "Przyjaźń"
+    "pl": "Przyjaźń",
+    "en": "Friendship"
   },
   {
-    "name": "Prestiż"
+    "pl": "Prestiż",
+    "en": "Prestige"
   },
   {
-    "name": "Prawda"
+    "pl": "Prawda",
+    "en": "Truth"
   },
   {
-    "name": "Pokora"
+    "pl": "Pokora",
+    "en": "Humility"
   },
   {
-    "name": "Prostota"
+    "pl": "Prostota",
+    "en": "Simplicity"
   },
   {
-    "name": "Przyjemność"
+    "pl": "Przyjemność",
+    "en": "Pleasure"
   },
   {
-    "name": "Rodzina"
+    "pl": "Rodzina",
+    "en": "Family"
   },
   {
-    "name": "Radość"
+    "pl": "Radość",
+    "en": "Joy"
   },
   {
-    "name": "Rozwój"
+    "pl": "Rozwój",
+    "en": "Growth"
   },
   {
-    "name": "Rozwaga"
+    "pl": "Rozwaga",
+    "en": "Prudence"
   },
   {
-    "name": "Ryzyko"
+    "pl": "Ryzyko",
+    "en": "Risk"
   },
   {
-    "name": "Rozrywka"
+    "pl": "Rozrywka",
+    "en": "Entertainment"
   },
   {
-    "name": "Równowaga"
+    "pl": "Równowaga",
+    "en": "Balance"
   },
   {
-    "name": "Samoświadomość"
+    "pl": "Samoświadomość",
+    "en": "Self-awareness"
   },
   {
-    "name": "Sława"
+    "pl": "Sława",
+    "en": "Fame"
   },
   {
-    "name": "Spontaniczność"
+    "pl": "Spontaniczność",
+    "en": "Spontaneity"
   },
   {
-    "name": "Sprawiedliwość"
+    "pl": "Sprawiedliwość",
+    "en": "Justice"
   },
   {
-    "name": "Szczęście"
+    "pl": "Szczęście",
+    "en": "Happiness"
   },
   {
-    "name": "Stanowczość"
+    "pl": "Stanowczość",
+    "en": "Assertiveness"
   },
   {
-    "name": "Sukces"
+    "pl": "Sukces",
+    "en": "Success"
   },
   {
-    "name": "Szczerość"
+    "pl": "Szczerość",
+    "en": "Honesty"
   },
   {
-    "name": "Szczodrość"
+    "pl": "Szczodrość",
+    "en": "Generosity"
   },
   {
-    "name": "Spokój"
+    "pl": "Spokój",
+    "en": "Calmness"
   },
   {
-    "name": "Stabilność"
+    "pl": "Stabilność",
+    "en": "Stability"
   },
   {
-    "name": "Szacunek"
+    "pl": "Szacunek",
+    "en": "Respect"
   },
   {
-    "name": "Szlachetność"
+    "pl": "Szlachetność",
+    "en": "Nobility"
   },
   {
-    "name": "Tolerancja"
+    "pl": "Tolerancja",
+    "en": "Tolerance"
   },
   {
-    "name": "Troskliwość"
+    "pl": "Troskliwość",
+    "en": "Care"
   },
   {
-    "name": "Twórczość"
+    "pl": "Twórczość",
+    "en": "Creativeness"
   },
   {
-    "name": "Uczciwość"
+    "pl": "Uczciwość",
+    "en": "Integrity"
   },
   {
-    "name": "Wdzięczność"
+    "pl": "Wdzięczność",
+    "en": "Gratitude"
   },
   {
-    "name": "Wiedza"
+    "pl": "Wiedza",
+    "en": "Knowledge"
   },
   {
-    "name": "Wykształcenie"
+    "pl": "Wykształcenie",
+    "en": "Education"
   },
   {
-    "name": "Wygoda"
+    "pl": "Wygoda",
+    "en": "Convenience"
   },
   {
-    "name": "Wolność"
+    "pl": "Wolność",
+    "en": "Freedom"
   },
   {
-    "name": "Wierność"
+    "pl": "Wierność",
+    "en": "Faithfulness"
   },
   {
-    "name": "Wyrozumiałość"
+    "pl": "Wyrozumiałość",
+    "en": "Understanding"
   },
   {
-    "name": "Wsparcie"
+    "pl": "Wsparcie",
+    "en": "Support"
   },
   {
-    "name": "Wrażliwość"
+    "pl": "Wrażliwość",
+    "en": "Sensitivity"
   },
   {
-    "name": "Wiarygodność"
+    "pl": "Wiarygodność",
+    "en": "Credibility"
   },
   {
-    "name": "Wiara"
+    "pl": "Wiara",
+    "en": "Faith"
   },
   {
-    "name": "Zaufanie"
+    "pl": "Zaufanie",
+    "en": "Trust"
   },
   {
-    "name": "Zaradność"
+    "pl": "Zaradność",
+    "en": "Resourcefulness"
   },
   {
-    "name": "Zdrowie"
+    "pl": "Zdrowie",
+    "en": "Health"
   },
   {
-    "name": "Zadowolenie"
+    "pl": "Zadowolenie",
+    "en": "Satisfaction"
   },
   {
-    "name": "Zaangażowanie"
+    "pl": "Zaangażowanie",
+    "en": "Commitment"
   }
 ]

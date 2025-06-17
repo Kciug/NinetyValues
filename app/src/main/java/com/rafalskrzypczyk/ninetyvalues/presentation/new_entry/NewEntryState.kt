@@ -12,5 +12,5 @@ data class NewEntryState(
     val selectingLimit: Int = 0,
     val showProgressBar: Boolean = true,
     val submitAllowed: Boolean = false,
-    val confirmationRequired: Boolean = false,
+    val isFinalizationStep: Boolean = false,
 )

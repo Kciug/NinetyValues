@@ -13,6 +13,7 @@
     <string name="missing_date">brak daty</string>
     <string name="title_entry">Twoje wartości</string>
     <string name="btn_submit">Dalej</string>
+    <string name="btn_save">Zapisz</string>
     <string name="title_confirm_save_entry">Zapisać listę wartości?</string>
     <string name="msg_confirm_save_entry">Wpis zostanie zapisany. Jeśli jesteś pewien swoich wyborów, kliknij "Zatwierdź"</string>
     <string name="ic_desc_entry_position_difference">Różnica pozycji</string>

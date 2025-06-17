@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 import org.json.JSONArray
 import javax.inject.Inject
 import com.rafalskrzypczyk.ninetyvalues.R
+import com.rafalskrzypczyk.ninetyvalues.room.data.models.ValueEntity
 import javax.inject.Provider
 
 class PrepopulateRoomCallback @Inject constructor(
@@ -30,19 +31,20 @@ class PrepopulateRoomCallback @Inject constructor(
         try {
             val valueDao = dbProvider.get().valueDao
 
-            val userList: JSONArray =
+            val values: JSONArray =
                 context.resources.openRawResource(R.raw.ninety_values).bufferedReader().use {
                     JSONArray(it.readText())
                 }
 
-            userList.takeIf { it.length() > 0 }?.let { list ->
-                val entitiesList = mutableListOf<com.rafalskrzypczyk.ninetyvalues.room.data.models.ValueEntity>()
+            values.takeIf { it.length() > 0 }?.let { list ->
+                val entitiesList = mutableListOf<ValueEntity>()
 
                 for (index in 0 until list.length()) {
-                    val userObj = list.getJSONObject(index)
+                    val valueObj = list.getJSONObject(index)
                     entitiesList.add(
-                        com.rafalskrzypczyk.ninetyvalues.room.data.models.ValueEntity(
-                            name = userObj.getString("name")
+                        ValueEntity(
+                            pl = valueObj.getString("pl"),
+                            en = valueObj.getString("en")
                         )
                     )
                 }

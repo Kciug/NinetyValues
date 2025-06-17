@@ -13,6 +13,7 @@
     <string name="missing_date">no date</string>
     <string name="title_entry">Your Values</string>
     <string name="btn_submit">Next</string>
+    <string name="btn_save">Save</string>
     <string name="title_confirm_save_entry">Are you ready?</string>
     <string name="open_entry">Open entry</string>
     <string name="msg_confirm_save_entry">The entry will be saved. If you\'re confident with your selection, click \"Confirm\"</string>

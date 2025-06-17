@@ -17,20 +17,22 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowForwardIos
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.DragIndicator
+import androidx.compose.material.icons.filled.TripOrigin
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -58,6 +60,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import com.rafalskrzypczyk.ninetyvalues.R
 import com.rafalskrzypczyk.ninetyvalues.domain.models.Value
 import com.rafalskrzypczyk.ninetyvalues.ui.composables.ConfirmationDialog
@@ -228,7 +231,7 @@ fun NewEntryScreen(
                 ) {
                     Button(
                         onClick = {
-                            if(state.confirmationRequired) showSaveConfirmationDialog.value = true
+                            if(state.isFinalizationStep) showSaveConfirmationDialog.value = true
                             else onEvent.invoke(NewEntryUIEvents.OnSubmit)
                         },
                         colors = ButtonDefaults.buttonColors(
@@ -238,14 +241,17 @@ fun NewEntryScreen(
                         contentPadding = PaddingValues(16.dp),
                         modifier = Modifier
                             .fillMaxWidth(0.5f)
+                            .zIndex(1f)
                             .shadow(
                                 elevation = 12.dp,
-                                shape = RoundedCornerShape(12.dp),
-                                //ambientColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
-                                //spotColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f)
+                                shape = RoundedCornerShape(50.dp),
+                                ambientColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
+                                spotColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f)
                             )
                     ) {
-                        Text(text = stringResource(R.string.btn_submit))
+                        Text(
+                            text = if(state.isFinalizationStep) stringResource(R.string.btn_save) else stringResource(R.string.btn_submit)
+                        )
                     }
                 }
             }
@@ -285,23 +291,26 @@ fun NewEntryGuideScreen(
         )
         Row {
             Icon(
-                imageVector = Icons.AutoMirrored.Default.ArrowForwardIos,
+                imageVector = Icons.Default.TripOrigin,
                 contentDescription = stringResource(R.string.ic_desc_new_entry_guide_point)
             )
+            Spacer(Modifier.width(16.dp))
             Text(stringResource(R.string.new_entry_intro_guide_1))
         }
         Row {
             Icon(
-                imageVector = Icons.AutoMirrored.Default.ArrowForwardIos,
+                imageVector = Icons.Default.TripOrigin,
                 contentDescription = stringResource(R.string.ic_desc_new_entry_guide_point)
             )
+            Spacer(Modifier.width(16.dp))
             Text(stringResource(R.string.new_entry_intro_guide_2))
         }
         Row {
             Icon(
-                imageVector = Icons.AutoMirrored.Default.ArrowForwardIos,
+                imageVector = Icons.Default.TripOrigin,
                 contentDescription = stringResource(R.string.ic_desc_new_entry_guide_point)
             )
+            Spacer(Modifier.width(16.dp))
             Text(stringResource(R.string.new_entry_intro_guide_3))
         }
         Text(
@@ -319,7 +328,7 @@ fun NewEntryGuideScreen(
                 .fillMaxWidth(0.5f)
                 .shadow(
                     elevation = 8.dp,
-                    shape = RoundedCornerShape(12.dp),
+                    shape = RoundedCornerShape(50.dp),
                     ambientColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.2f),
                     spotColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.2f)
                 )
@@ -407,7 +416,7 @@ fun SelectableValueItem(
                     .size(30.dp)
                     .clip(CircleShape)
                     .background(if (item.isSelected) MaterialTheme.colorScheme.primary else Color.Transparent)
-                    .border(width = 2.dp, color = Color.Gray, shape = CircleShape)
+                    .border(width = 2.dp, color = MaterialTheme.colorScheme.outline, shape = CircleShape)
                     .clickable {
                         if (!(newSelectionsEnabled || item.isSelected)) return@clickable
                         if (item.isSelected) onItemDeselected(item.id) else onItemSelected(item.id)

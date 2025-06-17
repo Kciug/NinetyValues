@@ -134,7 +134,7 @@ fun MainMenuButton(
             .fillMaxWidth()
             .shadow(
                 elevation = 8.dp,
-                shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(50.dp),
                 ambientColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.2f),
                 spotColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.2f)
             )

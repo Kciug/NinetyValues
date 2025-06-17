@@ -14,7 +14,7 @@ import com.rafalskrzypczyk.ninetyvalues.room.utils.Converters
         ValueEntity::class,
         EntryEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
